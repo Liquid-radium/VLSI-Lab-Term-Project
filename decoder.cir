@@ -42,6 +42,20 @@ Mp10 Y3 b vdd vdd CMOSP W=4u L=1u
 Mn9  Y3 a n4 n4 CMOSN W=2u L=1u
 Mn10 n4 b 0   0 CMOSN W=2u L=1u
 
+* --- Active-High Inverters for Decoder Outputs ---
+* Y0h, Y1h, Y2h, Y3h are the new active-high wordlines
+Myn0 Y0h Y0 0 0 CMOSN W=2u L=1u
+Myp0 Y0h Y0 vdd vdd CMOSP W=4u L=1u
+
+Myn1 Y1h Y1 0 0 CMOSN W=2u L=1u
+Myp1 Y1h Y1 vdd vdd CMOSP W=4u L=1u
+
+Myn2 Y2h Y2 0 0 CMOSN W=2u L=1u
+Myp2 Y2h Y2 vdd vdd CMOSP W=4u L=1u
+
+Myn3 Y3h Y3 0 0 CMOSN W=2u L=1u
+Myp3 Y3h Y3 vdd vdd CMOSP W=4u L=1u
+
 *---------------- Simulation control ----------------
 .tran 1n 200n
 .control
