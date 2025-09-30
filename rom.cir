@@ -11,7 +11,7 @@ Vb b 0 PULSE(0 5 0 5n 5n 40n 80n)
 .include "t14y_tsmc_025_level3.txt"
 
 * --- Include decoder subcircuit ---
-.include "DEC2to4.cir"
+.include "decoder.cir"
 
 * --- Instantiate decoder ---
 Xdec a b Y0 Y1 Y2 Y3 vdd 0 DEC2to4
@@ -35,4 +35,5 @@ Mbuf3_p   OUT3 BL3 vdd vdd CMOSP W=4u L=1u
 * --- Simulation ---
 .tran 1n 200n
 .probe v(a) v(b) v(Y0h) v(OUT0) v(OUT1) v(OUT2) v(OUT3)
+plot v(a) v(b) v(Y0h) v(OUT0) v(OUT1) v(OUT2) v(OUT3)
 .end
