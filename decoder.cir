@@ -1,0 +1,54 @@
+*---------------- Include Model File ----------------
+.include "t14y_tsmc_025_level3.txt"
+
+*---------------- Power supply ----------------
+Vdd vdd 0 5
+
+*---------------- Input signals ----------------
+Va a 0 PULSE(0 5 0 1n 1n 10n 20n)   ; A toggles faster
+Vb b 0 PULSE(0 5 0 1n 1n 20n 40n)   ; B toggles slower
+
+*---------------- Inverters for A and B bar ----------------
+* A -> Abar
+Mp1 Abar a vdd vdd CMOSP W=4u L=1u
+Mn1 Abar a 0   0   CMOSN W=2u L=1u
+
+* B -> Bbar
+Mp2 Bbar b vdd vdd CMOSP W=4u L=1u
+Mn2 Bbar b 0   0   CMOSN W=2u L=1u
+
+*---------------- Decoder Outputs ----------------
+* Y0 = Abar & Bbar
+Mp3 Y0 Abar vdd vdd CMOSP W=4u L=1u
+Mp4 Y0 Bbar vdd vdd CMOSP W=4u L=1u
+Mn3 Y0 Abar n1 n1 CMOSN W=2u L=1u
+Mn4 n1 Bbar 0   0   CMOSN W=2u L=1u
+
+* Y1 = Abar & B
+Mp5 Y1 Abar vdd vdd CMOSP W=4u L=1u
+Mp6 Y1 b    vdd vdd CMOSP W=4u L=1u
+Mn5 Y1 Abar n2 n2 CMOSN W=2u L=1u
+Mn6 n2 b    0   0  CMOSN W=2u L=1u
+
+* Y2 = A & Bbar
+Mp7 Y2 a    vdd vdd CMOSP W=4u L=1u
+Mp8 Y2 Bbar vdd vdd CMOSP W=4u L=1u
+Mn7 Y2 a    n3 n3 CMOSN W=2u L=1u
+Mn8 n3 Bbar 0   0  CMOSN W=2u L=1u
+
+* Y3 = A & B
+Mp9  Y3 a vdd vdd CMOSP W=4u L=1u
+Mp10 Y3 b vdd vdd CMOSP W=4u L=1u
+Mn9  Y3 a n4 n4 CMOSN W=2u L=1u
+Mn10 n4 b 0   0 CMOSN W=2u L=1u
+
+*---------------- Simulation control ----------------
+.tran 1n 200n
+.control
+run
+plot v(a) v(b)
+plot v(Y0) v(Y1) v(Y2) v(Y3)
+.endc
+
+*---------------- End of netlist ----------------
+.end
