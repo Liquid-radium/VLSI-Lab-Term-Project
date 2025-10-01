@@ -17,10 +17,10 @@ Vb b 0 PULSE(0 5 0 5n 5n 40n 80n)
 Xdec a b Y0 Y1 Y2 Y3 Y0h Y1h Y2h Y3h vdd 0 DEC2to4
 
 * --- ROM Cells (1 Word x 4 bits example) ---
-Mcell0 BL0 vdd Y0h 0 CMOSN W=2u L=1u   ; Bit0=1
-Mcell1 BL1 0   Y0h 0 CMOSN W=2u L=1u   ; Bit1=0
-Mcell2 BL2 vdd Y0h 0 CMOSN W=2u L=1u   ; Bit2=1
-Mcell3 BL3 vdd Y0h 0 CMOSN W=2u L=1u   ; Bit3=1
+Mcell0 BL0 Y0h vdd 0 CMOSN W=2u L=1u   ; Bit0=1
+Mcell1 BL1 Y0h 0 0 CMOSN W=2u L=1u   ; Bit1=0
+Mcell2 BL2 Y0h vdd 0 CMOSN W=2u L=1u   ; Bit2=1
+Mcell3 BL3 Y0h vdd 0 CMOSN W=2u L=1u   ; Bit3=1
 
 * --- Output Buffers ---
 Mbuf0_out OUT0 BL0 0 0 CMOSN W=2u L=1u
