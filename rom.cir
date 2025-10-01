@@ -13,8 +13,8 @@ Vb b 0 PULSE(0 5 0 5n 5n 40n 80n)
 * --- Include decoder subcircuit ---
 .include "decoder.cir"
 
-* --- Instantiate decoder ---
-Xdec a b Y0 Y1 Y2 Y3 vdd 0 DEC2to4
+* --- Instantiate decoder (ALL ports matched) ---
+Xdec a b Y0 Y1 Y2 Y3 Y0h Y1h Y2h Y3h vdd 0 DEC2to4
 
 * --- ROM Cells (1 Word x 4 bits example) ---
 Mcell0 BL0 vdd Y0h 0 CMOSN W=2u L=1u   ; Bit0=1
@@ -35,5 +35,12 @@ Mbuf3_p   OUT3 BL3 vdd vdd CMOSP W=4u L=1u
 * --- Simulation ---
 .tran 1n 200n
 .probe v(a) v(b) v(Y0h) v(OUT0) v(OUT1) v(OUT2) v(OUT3)
-plot v(a) v(b) v(Y0h) v(OUT0) v(OUT1) v(OUT2) v(OUT3)
+
+.control
+run
+plot v(a) v(b)
+plot v(Y0h)
+plot v(OUT0) v(OUT1) v(OUT2) v(OUT3)
+.endc
 .end
+* End of rom.cir

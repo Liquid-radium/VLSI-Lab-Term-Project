@@ -1,0 +1,25 @@
+* Testbench for 2-to-4 Decoder
+
+.include "t14y_tsmc_025_level3.txt"
+.include "decoder.cir"
+
+* Power supply
+Vdd vdd 0 5
+
+* Input signals
+Va a 0 PULSE(0 5 0 1n 1n 10n 20n)   ; A toggles faster
+Vb b 0 PULSE(0 5 0 1n 1n 20n 40n)   ; B toggles slower
+
+* Instantiate decoder
+Xdec a b Y0 Y1 Y2 Y3 Y0h Y1h Y2h Y3h vdd 0 DEC2to4
+
+* Simulation
+.tran 1n 200n
+.control
+run
+plot v(a) v(b) 
+plot v(Y0h) v(Y1h) v(Y2h) v(Y3h)
+.endc
+
+.end
+* End of decoder_tb.cir
