@@ -21,10 +21,10 @@ Xdec a b Y0 Y1 Y2 Y3 Y0h Y1h Y2h Y3h vdd 0 DEC2to4
 * Format: Mname Drain Gate Source Bulk Model
 
 * -------- Word 0 (Addr=00) = 1011 --------
-M00 BL0 Y0h vdd 0 CMOSN W=2u L=1u
+M00 BL0 Y0h vdd vdd CMOSN W=2u L=1u
 M01 BL1 Y0h 0   0 CMOSN W=2u L=1u
-M02 BL2 Y0h vdd 0 CMOSN W=2u L=1u
-M03 BL3 Y0h vdd 0 CMOSN W=2u L=1u
+M02 BL2 Y0h vdd vdd CMOSN W=2u L=1u
+M03 BL3 Y0h vdd vdd CMOSN W=2u L=1u
 
 * -------- Word 1 (Addr=01) = 0101 --------
 M10 BL0 Y1h 0   0 CMOSN W=2u L=1u
@@ -47,17 +47,17 @@ M33 BL3 Y3h 0   0 CMOSN W=2u L=1u
 * =====================================================
 * --- Output Buffers (per bitline) ---
 * Bitline BL → Output OUT (via inverter)
-Mp0 OUT0 BL0 vdd vdd CMOSP W=4u L=1u
-Mn0 OUT0 BL0 0   0   CMOSN W=2u L=1u
+Mp0 OUT0 BL0 vdd vdd CMOSN W=4u L=1u
+Mn0 OUT0 BL0 0   0   CMOSP W=2u L=1u
 
-Mp1 OUT1 BL1 vdd vdd CMOSP W=4u L=1u
-Mn1 OUT1 BL1 0   0   CMOSN W=2u L=1u
+Mp1 OUT1 BL1 vdd vdd CMOSN W=4u L=1u
+Mn1 OUT1 BL1 0   0   CMOSP W=2u L=1u
 
-Mp2 OUT2 BL2 vdd vdd CMOSP W=4u L=1u
-Mn2 OUT2 BL2 0   0   CMOSN W=2u L=1u
+Mp2 OUT2 BL2 vdd vdd CMOSN W=4u L=1u
+Mn2 OUT2 BL2 0   0   CMOSP W=2u L=1u
 
-Mp3 OUT3 BL3 vdd vdd CMOSP W=4u L=1u
-Mn3 OUT3 BL3 0   0   CMOSN W=2u L=1u
+Mp3 OUT3 BL3 vdd vdd CMOSN W=4u L=1u
+Mn3 OUT3 BL3 0   0   CMOSP W=2u L=1u
 
 * =====================================================
 * --- Simulation ---
