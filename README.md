@@ -18,7 +18,7 @@ The design flow includes:
 
 ##  Features
 
--  CMOS-based 1×4 ROM implementation
+-  CMOS-based 4×4 ROM implementation
 -  2-to-4 line decoder using logic transistors
 -  Word-line and bit-line based addressing
 -  SPICE-based transient simulation
