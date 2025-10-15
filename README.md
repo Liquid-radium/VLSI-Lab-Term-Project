@@ -1,6 +1,6 @@
-#  1-Word × 4-Bit ROM Design (CMOS Implementation)
+#  4-Word × 4-Bit ROM Design (CMOS Implementation)
 
-This project demonstrates the complete design and simulation flow of a **1-word × 4-bit Read-Only Memory (ROM)** circuit using **CMOS technology**, **SPICE simulation**, and **Magic VLSI layout**.
+This project demonstrates the complete design and simulation flow of a **4-word × 4-bit Read-Only Memory (ROM)** circuit using **CMOS technology**, **SPICE simulation**, and **Magic VLSI layout**.
 
 ---
 
